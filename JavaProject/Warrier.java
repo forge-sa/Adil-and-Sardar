@@ -1,8 +1,10 @@
 public class Warrier extends Unite{
-    public Warrier(String t, int h, String s) {
-        super(t, h);
+    
+    public Warrier(String t, String s, int h) {
+        super(t, s, h);
         setType("Warrier");
-        setSloghan("My sword sharper than Shekspirs word");
+	setSlog("ATTACK FOR GO-O-OD AND KI-I-ING!");
         setDefence(getDefence() + 2);
     }
+    
 }

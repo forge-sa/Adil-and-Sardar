@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
+    
 public class Main {
     public static void main(String[] args) {
         List<Unite> playerCharacters = new ArrayList<>();
@@ -12,25 +12,25 @@ public class Main {
 
         // Генерирует 5 рандомных персонажей для игрока
         for (int i = 0; i < 5; i++) {
-            int choice = random.nextInt(3);
+            int choice = random.nextInt(3); // Рандом из 0, 1, и 2
             if (choice == 0) {
-                playerCharacters.add(new Warrier("Warrier", 100));
+                playerCharacters.add(new Warrier("Warrier", "ATTACK FOR GO-O-OD AND KI-I-ING!", 100)); // Делает Варриера
             } else if (choice == 1) {
-                playerCharacters.add(new Wizzard("Wizzard", 100));
+                playerCharacters.add(new Wizzard("Wizzard", "MAGYC P-P-PAW! POODOOF! BOOM!",100)); // Делает Магу
             } else {
-                playerCharacters.add(new Elf("Elf", 100));
+                playerCharacters.add(new Elf("Elf","I CAN FEEL SPIRITS ARE HERE WHITH ME", 100)); // Делает Эльфа
             }
         }
 
         // Генерирует 5 рандомных персонажей для противника
         for (int i = 0; i < 5; i++) {
-            int choice = random.nextInt(3);
+            int choice = random.nextInt(3); // Рандом из 0, 1, и 2
             if (choice == 0) {
-                opponentCharacters.add(new Warrier("Warrier", 100));
+                opponentCharacters.add(new Warrier("Warrier", "ATTACK FOR GO-O-OD AND KI-I-ING!", 100)); // Делает Варриера
             } else if (choice == 1) {
-                opponentCharacters.add(new Wizzard("Wizzard", 100));
+                opponentCharacters.add(new Wizzard("Wizzard", "MAGYC P-P-PAW! POODOOF! BOOM!", 100)); // Делает Магу
             } else {
-                opponentCharacters.add(new Elf("Elf", 100));
+                opponentCharacters.add(new Elf("Elf","I CAN FEEL SPIRITS ARE HERE WHITH ME", 100)); // Делает Эльфа
             }
         }
 
@@ -38,13 +38,13 @@ public class Main {
         System.out.println("Player's Characters:");
         for (int i = 0; i < playerCharacters.size(); i++) {
             Unite character = playerCharacters.get(i);
-            System.out.println(i + 1 + ". Type: " + character.getType() +
-                               ", HP: " + character.getHp() +
-                               ", Attack: " + (int) character.getAttack() +
+            System.out.println(i + 1 + ". Type: " + character.getType() + 
+                               ", HP: " + character.getHp() + 
+                               ", Attack: " + (int) character.getAttack() + 
                                ", Defence: " + (int) character.getDefence());
         }
 
-        // Основной игровой цикл
+        // Вайл 
         while (!playerCharacters.isEmpty() && !opponentCharacters.isEmpty()) {
             // Выбор игроком
             System.out.println("Choose your character (1-" + playerCharacters.size() + "):");
@@ -57,41 +57,46 @@ public class Main {
 
             Unite playerCharacter = playerCharacters.get(playerChoice);
 
-            // Противник выбирает случайно
+            // Противник тычет на рандом
             Unite opponentCharacter = opponentCharacters.get(random.nextInt(opponentCharacters.size()));
 
-            System.out.println("Battle:");
+            System.out.println("BATTLE:");
+            System.out.println(" ");
             System.out.println("Player's " + playerCharacter.getType() + " vs Opponent's " + opponentCharacter.getType());
+            System.out.println(" ");
+            playerCharacter.shoutSlogan();  // Игрок орёт
+            System.out.println(" ");
+	        opponentCharacter.shoutSlogan(); // Противник орёт
+            System.out.println(" ");
 
-            // Расчет боя
+            // Битва дамаг - деф
             int playerPower = (int) (playerCharacter.getAttack() - opponentCharacter.getDefence());
             int opponentPower = (int) (opponentCharacter.getAttack() - playerCharacter.getDefence());
-            
             if (playerCharacter.getDefence() == 0) {
                 opponentPower = (int) opponentCharacter.getAttack() - playerCharacter.getHp();
             }
             if (opponentCharacter.getDefence() == 0) {
                 playerPower = (int) playerCharacter.getAttack() - opponentCharacter.getHp();
             }
-            
             if (playerPower > opponentPower) {
                 System.out.println("Player's " + playerCharacter.getType() + " wins!");
-                opponentCharacters.remove(opponentCharacter);
+                opponentCharacters.remove(opponentCharacter); // Противник теряет персонажа
             } else if (opponentPower > playerPower) {
                 System.out.println("Opponent's " + opponentCharacter.getType() + " wins!");
-                playerCharacters.remove(playerCharacter);
+                playerCharacters.remove(playerCharacter); // Игрок теряет персонажа
             } else {
                 System.out.println("It's a draw! Both characters are removed.");
                 playerCharacters.remove(playerCharacter);
                 opponentCharacters.remove(opponentCharacter);
             }
+            System.out.println(" ");
 
             // Остаток персонажей
             System.out.println("Remaining Player Characters: " + playerCharacters.size());
             System.out.println("Remaining Opponent Characters: " + opponentCharacters.size());
         }
 
-        // Определение победителя
+        // Победттель
         if (playerCharacters.isEmpty() && opponentCharacters.isEmpty()) {
             System.out.println("It's a draw! Both sides lost all characters.");
         } else if (playerCharacters.isEmpty()) {

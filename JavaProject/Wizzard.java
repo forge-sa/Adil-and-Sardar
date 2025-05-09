@@ -1,8 +1,10 @@
-public class Wizzard extends Unite {
-    public Wizzard(String t, int h, String s) {
-        super(t, h, s);
-        setType("Wizard");
-        setSloghan("My mana is stronger than katana");
+public class Wizzard extends Unite{
+    
+    public Wizzard(String t, String s, int h) {
+        super(t, s, h);
+        setType("Wizzard");
+	setSlog("MAGYC P-P-PAW! POODOOF! BOOM!");
         setHp(getHp() + 10);
     }
+    
 }

@@ -1,8 +1,10 @@
-public class Elf extends Unite {
-    public Elf(String t, int h, String s) {
-        super(t, h, s);
+public class Elf extends Unite{
+    
+    public Elf(String t, String s, int h) {
+        super(t, s, h);
         setType("Elf");
-        setSloghan("My arrow sends my power");
+	    setSlog("I CAN FEEL SPIRITS ARE HERE WHITH ME");
         setAttack(getAttack() + 2);
     }
+    
 }
