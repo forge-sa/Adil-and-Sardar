@@ -4,7 +4,7 @@ public class Warrier extends Unite{
         super(t, s, h);
         setType("Warrier");
 	setSlog("ATTACK FOR GO-O-OD AND KI-I-ING!");
-        setDefence(getDefence() + 2);
+        setDefence(getDefence() + 1);
     }
     
 }

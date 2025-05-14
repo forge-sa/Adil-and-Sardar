@@ -4,7 +4,7 @@ public class Elf extends Unite{
         super(t, s, h);
         setType("Elf");
 	    setSlog("I CAN FEEL SPIRITS ARE HERE WHITH ME");
-        setAttack(getAttack() + 2);
+        setAttack(getAttack() + 1);
     }
     
 }

@@ -4,7 +4,7 @@ public class Wizzard extends Unite{
         super(t, s, h);
         setType("Wizzard");
 	setSlog("MAGYC P-P-PAW! POODOOF! BOOM!");
-        setHp(getHp() + 10);
+        setHp(getHp() + 1);
     }
     
 }

@@ -10,8 +10,8 @@ public class Unite{
         type = t;
 	    slog = s;
         hp = h;
-        attack = 3 + Math.random()*4;
-        defence = 3 + Math.random()*4;
+        attack = 5 + Math.random()*7;
+        defence = 1 + Math.random()*2;
     }
     // Задает тип
     public String getType() {
